@@ -19,9 +19,7 @@ import { dispatchSubscribe } from 'redux-dispatch-subscribe';
 
 const enhancer = compose(
   applyMiddleware(...middleware),
-  dispatchSubscribe((notify) => {
-    notify();
-  })
+  dispatchSubscribe()
 )
 
 // Note: passing enhancer as the last argument to createStore requires redux@>=3.1.0
