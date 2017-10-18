@@ -1,7 +1,7 @@
 {
-  "name": "redux-batched-subscribe",
-  "version": "0.1.6",
-  "description": "redux store enhancer which allows batching subscribe notifications.",
+  "name": "redux-dispatch-subscribe",
+  "version": "1.0.0",
+  "description": "redux store enhancer which allows to listen for dispatched actions",
   "main": "lib/index.js",
   "files": [
     "lib",
@@ -16,22 +16,23 @@
   },
   "keywords": [
     "redux",
-    "batched",
+    "dispatch",
+    "subscribe",
     "react",
     "reactjs",
     "performance",
     "store"
   ],
-  "author": "Terry Appleby <terry.appleby@gmail.com>",
+  "author": "Sebastien Lorber <lorber.sebastien@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tappleby/redux-batched-subscribe.git"
+    "url": "https://github.com/slorber/redux-dispatch-subscribe.git"
   },
   "bugs": {
-    "url": "https://github.com/tappleby/redux-batched-subscribe/issues"
+    "url": "https://github.com/slorber/redux-batched-subscribe/issues"
   },
-  "homepage": "https://github.com/tappleby/redux-batched-subscribe",
+  "homepage": "https://github.com/slorber/redux-batched-subscribe",
   "devDependencies": {
     "babel": "^5.8.20",
     "babel-core": "^5.8.20",

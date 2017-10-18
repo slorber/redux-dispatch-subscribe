@@ -1,8 +1,6 @@
-export function batchedSubscribe(batch) {
-  if (typeof batch !== 'function') {
-    throw new Error('Expected batch to be a function.');
-  }
 
+
+export function dispatchSubscribe() {
   let currentListeners = [];
   let nextListeners = currentListeners;
 
@@ -12,7 +10,7 @@ export function batchedSubscribe(batch) {
     }
   }
 
-  function subscribe(listener) {
+  function addDispatchListener(listener) {
     if (typeof listener !== 'function') {
       throw new Error('Expected listener to be a function.');
     }
@@ -35,32 +33,26 @@ export function batchedSubscribe(batch) {
     };
   }
 
-  function notifyListeners() {
+  function notifyListeners(...dispatchArgs) {
     const listeners = currentListeners = nextListeners;
     for (let i = 0; i < listeners.length; i++) {
-      listeners[i]();
+      listeners[i](...dispatchArgs);
     }
-  }
-
-  function notifyListenersBatched() {
-    batch(notifyListeners);
   }
 
   return next => (...args) => {
     const store = next(...args);
-    const subscribeImmediate = store.subscribe;
 
     function dispatch(...dispatchArgs) {
       const res = store.dispatch(...dispatchArgs);
-      notifyListenersBatched();
+      notifyListeners(...dispatchArgs);
       return res;
     }
 
     return {
       ...store,
       dispatch,
-      subscribe,
-      subscribeImmediate
+      addDispatchListener,
     };
   };
 }
