@@ -86,7 +86,7 @@ Because it's a very simple solution to listen for dispatches and react to them.
 
 If you already use Redux-saga or Redux-observable it will not be useful for as this lib is aiming to solve the same usecase.
 If you don't and these libraries are frightening you, this solution could be simpler and lighter.
-If you only need one listener of this type in your app, you could create a middleware instead.
+If you only need one listener of this type in your app, you could create a middleware instead. This solution is mostly useful if you want to easily register/remove listeners during app lifetime.
 
 
 Discussions with Yassine Elouafi and me (Redux-saga) lead to the creation of Redux-saga which is much more advanced (and complex) than this solution. 
