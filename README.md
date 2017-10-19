@@ -54,7 +54,6 @@ const unsubscribe = store.addDispatchListener(action => {
     }
   }
   
-  
 })
 ```
 
