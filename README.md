@@ -32,7 +32,7 @@ const store = createStore(reducer, initialState, enhancer);
 
 ## Usage
 
-```s 
+```js 
 const unsubscribe = store.addDispatchListener(action => {
   
   // Do whatever you want here
