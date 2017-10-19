@@ -58,6 +58,15 @@ const unsubscribe = store.addDispatchListener(action => {
 ```
 
 ```js
+const unsubscribe = store.addDispatchListener(action => {
+  if (action.type === 'ping') {
+    store.dispatch({ type: 'pong' });
+  }
+});
+```
+
+
+```js
 class MyLayoutComponent extends Component {
   componentDidMount() {
     this.unsubscribe = this.props.store.addDispatchListener(action => {
