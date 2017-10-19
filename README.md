@@ -30,7 +30,7 @@ const store = createStore(reducer, initialState, enhancer);
 *Note: since `compose` applies functions from right to left, `dispatchSubscribe` should appear at the end of the chain.*
 
 
-## Usage
+## Usage examples
 
 ```js 
 const unsubscribe = store.addDispatchListener(action => {
@@ -57,12 +57,36 @@ const unsubscribe = store.addDispatchListener(action => {
 })
 ```
 
+```js
+class MyLayoutComponent extends Component {
+  componentDidMount() {
+    this.unsubscribe = this.props.store.addDispatchListener(action => {
+      if (action.type === "SCOLL_TO_TOP") {
+        this.layoutRef.scrollTop = 0;
+      }
+    })
+  }
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+  render() {
+    return (
+      <div className="layout" ref={c => this.layoutRef = c}>
+        <div>content</div>
+      </div>
+    );
+  }
+}
+```
+
 
 ## Why
 
 Because it's a very simple solution to listen for dispatches and react to them. 
+
 If you already use Redux-saga or Redux-observable it will not be useful for as this lib is aiming to solve the same usecase.
 If you don't and these libraries are frightening you, this solution could be simpler and lighter.
+If you only need one listener of this type in your app, you could create a middleware instead.
 
 
 Discussions with Yassine Elouafi and me (Redux-saga) lead to the creation of Redux-saga which is much more advanced (and complex) than this solution. 
