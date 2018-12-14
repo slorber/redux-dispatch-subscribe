@@ -106,3 +106,8 @@ I created this store enhancer for myself mostly due to a complex app migration a
 ## Thanks
 
 Implementation is inspired from [redux-batched-subscribe](https://www.npmjs.com/package/redux-batched-subscribe).
+
+# Hire a freelance expert
+
+Looking for a React/ReactNative freelance expert with more than 5 years production experience?
+Contact me from my [website](https://sebastienlorber.com/) or with [Twitter](https://twitter.com/sebastienlorber).
